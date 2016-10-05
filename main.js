@@ -1,60 +1,92 @@
+//confiuration
+var width = 720;
+var animationSpeed = 2000;
+var pause = 3000;
+var currentSlide = 1;
+
+//cache DOM
+var $slider = $('#slider');
+var $sliderContainer = $slider.find('.slides');
+var $slides = $sliderContainer.find('.slide');
+var interval;
+var $playShow = $('#auto-play');
+var $goBack = $('#go-back');
+var $goForward = $('#go-forward');
+
+$(function() {
+
+//starts slider
+  function startSlider() {
+    interval = setInterval(function() {
+      $sliderContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
+        currentSlide++;
+        if(currentSlide === $slides.length) {
+          currentSlide = 1;
+          $sliderContainer.css("margin-left", 0);
+        }
+      });
+    }, pause);
+  }
+//stops slider
+  function stopSlider() {
+    clearInterval(interval);
+  }
+
+//moves to the LEFT
+  function goLeft() {
+
+  }
+
+//moves to the RIGHT
+  function goRight() {
+
+  }
+
+//this starts the slider in autoplay mode
+var clickNumber = 0;
+
+  $playShow.click(function(e){
+    if (clickNumber %2 === 0) {
+      $(this).text('Stop');
+      console.log("even");
+      startSlider();
+    } else {
+      console.log("odd");
+      stopSlider();
+      $(this).text('Autoplay');
+    };
+    clickNumber++;
+
+//this goes back one slide
+  $goBack.click(function(e){
+      goLeft();
+    };
+
+//this goes forward one slide
+  $goBack.click(function(e){
+      goRight();
+    };
+
+  });
+
+ });
 
 
 
-// // console.log("this works");
+// var fadeIn = $(function() {
+//   setInterval(function() {
+//     $('#slider .slides').fadeIn(2000)
+//   }, 3000);
+// });
 
-// jQuery(document).ready(function ($) {
+// var swipeLeft = $(function() {
+//   setInterval(function() {
+//     $('#slider .slides').animate({'margin-left': '-=720'}, 1000)
+//   }, 3000);
+// });
 
-//   var checkedFlag = false;
-//   $('#checkbox').click(function(){
-//     var i = 0
-//     var runTheShow = setInterval(function (){
-//       if ($('#checkbox').checked === false) {
-//         clearInterval(runTheShow);
-//       }
-//       // if (i >= 1) {
-//       //   clearInterval(runTheShow);
-//       // }
-//       // i++;
-//       moveRight();
-//     }, 3000);
-//   });
-
-//   var slideCount = $('#slider ul li').length;
-//   var slideWidth = $('#slider ul li').width();
-//   var slideHeight = $('#slider ul li').height();
-//   var sliderUlWidth = slideCount * slideWidth;
-//   console.log("slide width", slideWidth);
-//   $('#slider').css({ width: slideWidth, height: slideHeight });
-
-//   $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth/2 });
-
-//   $('#slider ul li:last-child').prependTo('#slider ul');
-
-//   function moveLeft() {
-//       $('#slider ul').animate({
-//           left: + slideWidth
-//       }, 200, function () {
-//           $('#slider ul li:last-child').prependTo('#slider ul');
-//           $('#slider ul').css('left', '');
-//       });
-//   };
-
-//   function moveRight() {
-//       $('#slider ul').animate({
-//           left: - slideWidth
-//       }, 200, function () {
-//           $('#slider ul li:first-child').appendTo('#slider ul');
-//           $('#slider ul').css('left', '');
-//       });
-//   };
-
-//   $('a.control_prev').click(function () {
-//     moveLeft();
-//   });
-
-//   $('a.control_next').click(function () {
-//     moveRight();
-//   });
-
+// var fadeOut = $(function() {
+//   setInterval(function() {
+//     $('#slider .slides').fadeOut(2000)
+//   }, 3000);
 // });

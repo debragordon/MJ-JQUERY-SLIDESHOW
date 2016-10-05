@@ -9,18 +9,23 @@
   <div class="header">
     <h1>Silas Monroe Gordon</h1>
   </div>
-
-  <div id="slider">
-    <ul>
-      <li><img src="images/silas-5.jpg"><p>Newborn</p></li>
-      <li><img src="images/silas-3.jpg"><p>6 months</p></li>
-      <li><img src="images/silas-4.jpg"><p>6 months</p></li>
-      <li><img src="images/silas-2.jpg"><p>8 months</p></li>
-      <li><img src="images/silas-1.jpg"><p>8 months</p></li>
-      <li><img src="images/silas-5.jpg"><p>Newborn</p></li>
-    </ul>
-  </div>
-
+  <center>
+    <div id="slider">
+      <ul class="slides">
+        <li><img src="images/silas-5.jpg" class="slide"><!-- <p>Newborn</p> --></li>
+        <li><img src="images/silas-3.jpg" class="slide"><!-- <p>6 months</p> --></li>
+        <li><img src="images/silas-4.jpg" class="slide"><!-- <p>6 months</p> --></li>
+        <li><img src="images/silas-2.jpg" class="slide"><!-- <p>8 months</p> --></li>
+        <li><img src="images/silas-1.jpg" class="slide"><!-- <p>8 months</p> --></li>
+        <li><img src="images/silas-5.jpg" class="slide"><!-- <p>Newborn</p> --></li>
+      </ul>
+    </div>
+    <div class="controls">
+      <button class="btn" id="go-back">Previous</button>
+      <button class="btn" id="auto-play">Autoplay</button>
+      <button class="btn" id="go-forward">Next</button>
+    </div>
+  </center>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>
